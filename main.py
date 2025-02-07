@@ -83,7 +83,7 @@ class Profile:
 
     def AddBio(self, custom_bio: str = None) -> response.Response:
         payload = {
-            "bio": "discord.gg/vast" if custom_bio is None else custom_bio
+            "bio": "duhhh" if custom_bio is None else custom_bio
         }
         headers = self.headers
         headers["content-length"] = str(len(dumps(payload)))
@@ -195,9 +195,10 @@ class Discord:
             payload = {
                 "consent": True,
                 "fingerprint": fingerprint,
-                "username": "vastdabest" if CONFIG_uname == "" else CONFIG_uname,
+                "username": "rumi" + random.randint(1, 1000000) if CONFIG_uname == "" else CONFIG_uname,
                 "captcha_key": capKey,
-                "invite": "vast"
+                "globalname": "rumidepgai",
+                "date-of-birth": "1990-10-25"
             }
             headers = {
                 'Accept': '*/*',
@@ -225,7 +226,7 @@ class Discord:
                 return False
 
             token = response.json().get('token')
-
+            response2 = self.session.post('https://discord.com/api/v9/phone-verifications/verify')
             headers.pop('content-length')
             headers.pop('X-Fingerprint')
             headers['Authorization'] = token
