@@ -4,6 +4,9 @@ from tls_client  import Session, response
 from websocket   import WebSocket
 from toml        import load
 from os          import _exit, system, path, listdir
+import os
+from dotenv import load_dotenv
+load_dotenv()
 from time        import time, sleep
 from random      import choice
 from json        import dumps
@@ -180,6 +183,7 @@ class Discord:
 
     def register(self) -> bool:
         try:
+            smspooltjen = os.getenv("smspooltken")
             xcookies, fingerprint = self.getCookies()
             cookies = {
                 '__dcfduid': xcookies.get('__dcfduid'),
