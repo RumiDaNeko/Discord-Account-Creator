@@ -47,7 +47,7 @@ class Profile:
                     "referrer_current": "",
                     "referring_domain_current": "",
                     "release_channel": "stable",
-                    "client_build_number": 199933,
+                    "client_build_number": 381182,
                     "client_event_source": None,
                     "design_id": 0
                 },
